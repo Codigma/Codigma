@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../../img/logo-y.svg';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 
 class Header extends Component {
   constructor(props){
@@ -8,16 +8,38 @@ class Header extends Component {
 
     const {
       toggle,
-      menu
     } = this.props
 
     this.state = {
       isToggleOn : toggle,
-      isMenuSection : menu
+      transparent: this.props.home,
+      isHome: this.props.home
     };
 
-    // This binding is necessary to make `this` work in the callback
-    //this.handleClick = this.handleClick.bind(this);
+    this.headerColorChange = this.headerColorChange.bind(this);
+  }
+
+  componentDidMount() {
+    if(this.state.isHome){
+      window.addEventListener("scroll", this.headerColorChange);
+    }
+  }
+
+  headerColorChange() {
+    const windowsScrollTop = window.pageYOffset;
+    if (windowsScrollTop > 340) {
+      this.setState({
+        transparent: false
+      });
+    } else {
+      this.setState({
+        transparent: true
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.headerColorChange);
   }
 
   handleSetToggle = (e) => {
@@ -26,21 +48,27 @@ class Header extends Component {
     }));
   }
 
-  handleSetMenu = (e, id) => {
+  handleSetMenu = (e) => {
     this.setState({
-      isMenuSection: id
+      isToggleOn: false
     })
   }
 
   render(){
     return(
-    <nav id="navbar" className="navbar header is-dark is-shadow is-fixed-top" style={{ height: "70px" }}>
+    <nav id="navbar" className={ "navbar header is-fixed-top is-dark " + (this.state.transparent ? 'is-transparent' : 'is-dark is-shadow') } style={{ height: "70px" }}>
+
       <div className="container h-100">
 
         <div className="navbar-brand h-100">
-          <Link to="/" className="navbar-item" onClick={ (e) => this.handleSetMenu(e, 1) }>
-            <img src={ logo } alt="codigma" className="maxHeight-100" style={{ height: "23px" }} />
-          </Link>
+          <NavLink to="/"
+          className="navbar-item"
+          onClick={ (e) => this.handleSetMenu(e) }>
+          <svg className={ "icon "+ (this.state.transparent ? '' : 'has-text-warning') } style={{ width: "100px", fill: "currentColor" }}>
+            <use href="#logo" />
+          </svg>
+
+          </NavLink>
 
           <a className="navbar-item is-hidden-desktop has-text-info" href="https://twitter.com/Codigma_" target="_blank" rel="noopener noreferrer">
             <span className="icon">
@@ -54,7 +82,8 @@ class Header extends Component {
             </span>
           </a>
 
-          <div id="navbarBurger" className="is-flex navbar-burger is-centered is-vcentered is-hidden-desktop h-100" onClick={ this.handleSetToggle } data-target="navMenuDocumentation" style={{ width: "70px" }}>
+          <div id="navbarBurger" className="is-flex navbar-burger is-centered is-vcentered is-hidden-desktop h-100"
+          onClick={ this.handleSetToggle } data-target="navMenuDocumentation" style={{ width: "70px" }}>
             <i className={ this.state.isToggleOn ? 'fas fa-times' : 'fas fa-bars' }></i>
           </div>
         </div>
@@ -63,32 +92,47 @@ class Header extends Component {
         <div id="navMenuDocumentation" className={ "navbar-menu " + (this.state.isToggleOn ? 'is-active' : '') }>
           <div className="navbar-start">
 
-            <Link to="/" className={ "navbar-item " + (( this.state.isMenuSection === 1) ? 'is-active' : '') } onClick={ (e) => this.handleSetMenu(e, 1) }>
+            <NavLink to="/"
+            exact
+            activeClassName="is-active"
+            className="navbar-item"
+            onClick={ (e) => this.handleSetMenu(e) }>
               <span className="icon has-text-danger mr-1">
                 <i className="fas fa-home"></i>
               </span>
               <span>Inicio</span>
-            </Link>
-            <Link to="/nosotros" className={ "navbar-item " + (( this.state.isMenuSection === 2) ? 'is-active' : '') } onClick={ (e) => this.handleSetMenu(e, 2) }>
+            </NavLink>
+
+            <NavLink
+            to="/nosotros"
+            activeClassName="is-active"
+            className="navbar-item"
+            onClick={ (e) => this.handleSetMenu(e) }>
               <span className="icon mr-1 has-text-info">
                 <i className="fas fa-users"></i>
               </span>
               <span>Nosotros</span>
-            </Link>
+            </NavLink>
 
-            <Link to="/servicios" className={ "navbar-item " + (( this.state.isMenuSection === 3) ? 'is-active' : '') } onClick={ (e) => this.handleSetMenu(e, 3) }>
+            <NavLink to="/servicios"
+            activeClassName="is-active"
+            className="navbar-item"
+            onClick={ (e) => this.handleSetMenu(e) }>
               <span className="icon has-text-primary mr-1">
                 <i className="fas fa-cogs"></i>
               </span>
               <span>Servicios</span>
-            </Link>
+            </NavLink>
 
-            <Link to="/portafolio" className={ "navbar-item " + (( this.state.isMenuSection === 4) ? 'is-active' : '') } onClick={ (e) => this.handleSetMenu(e, 4) }>
+            <NavLink to="/portafolio/recientes"
+            activeClassName="is-active"
+            className="navbar-item"
+            onClick={ (e) => this.handleSetMenu(e) }>
               <span className="icon has-text-success mr-1">
                 <i className="fas fa-briefcase"></i>
               </span>
               <span>Portafolio</span>
-            </Link>
+            </NavLink>
           </div>
 
   <div className="navbar-end">
@@ -98,7 +142,7 @@ class Header extends Component {
       </span>
     </a>
     <a className="navbar-item is-hidden-touch" href="https://www.facebook.com/Codigma/" target="_blank" rel="noopener noreferrer">
-      <span className="icon has-text-white">
+      <span className="icon">
         <i className="fab fa-lg fa-facebook-f"></i>
       </span>
     </a>
@@ -106,7 +150,8 @@ class Header extends Component {
       <span className="icon has-text-success mr-1">
         <i className="fab fa-lg fa-whatsapp"></i>
       </span>
-      <span className={ (this.state.isToggleOn ? 'has-text-black' : 'has-text-weight-semibold has-text-white') }>+52 (753)1215568</span>
+      <span className="has-text-weight-semibold is-hidden-touch">+52 (753)1215568</span>
+      <span className="is-hidden-desktop">+52 (753)1215568</span>
     </div>
   </div>
 </div>
@@ -117,8 +162,7 @@ class Header extends Component {
 }
 
 Header.defaultProps = {
-  toggle: false,
-  menu: 1
+  toggle: false
 }
 
 export default Header;

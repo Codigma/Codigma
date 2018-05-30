@@ -1,9 +1,16 @@
+//Dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+//Assets
 import './index.css';
-import App from './App';
+
 import registerServiceWorker from './registerServiceWorker';
 
+//Components
+import App from './App';
+
+//Routes
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(

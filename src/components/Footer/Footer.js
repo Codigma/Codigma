@@ -4,23 +4,24 @@ import React from 'react';
 const Footer = () => {
   return(
     <div className="w-100">
-      <div className="columns is-mobile is-multiline is-centered maxWidth-100 section m-0">
+      <div className="columns is-mobile is-multiline is-centered maxWidth-100 section m-0 has-background-dark">
 
-        <div className="column is-four-fifths-mobile is-one-third-tablet is-one-quarter-desktop">
-          <p className="has-text-centered">
-            <b>Corporativo</b>
-            <br />
-            Lázaro Cárdenas Michoacán México
-            <br />
-            <span>+52(753)1215568</span>
-            <br/>
-            <span>codigma.mx@gmail.com</span>
-          </p>
+        <div className="column is-four-fifths-mobile is-one-third-tablet is-one-quarter-desktop has-text-white">
+          <div className="has-text-centered">
+            <b className="has-text-warning">Corporativo</b>
+            <p className="">
+              Lázaro Cárdenas Michoacán México
+              <br />
+              <span>+52 (753)1215568</span>
+              <br/>
+              <span>codigma.mx@gmail.com</span>
+            </p>
+          </div>
         </div>
 
-        <div className="column is-four-fifths-mobile is-one-third-tablet is-one-quarter-desktop">
+        <div className="column is-four-fifths-mobile is-one-third-tablet is-one-quarter-desktop has-text-white">
           <p className="has-text-centered">
-            <b>Nuestras redes sociales</b>
+            <b className="has-text-warning">Nuestras redes sociales</b>
             <br/>
             <a className="mr-3" href="https://www.facebook.com/Codigma/" target="_blank" rel="noopener noreferrer">
               <span className="icon has-text-white">
@@ -40,9 +41,9 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="column is-four-fifths-mobile is-one-third-tablet is-one-quarter-desktop">
+        <div className="column is-four-fifths-mobile is-one-third-tablet is-one-quarter-desktop has-text-white">
           <div className="has-text-centered mx-auto" style={{ width: "160px" }}>
-            <b className="is-italic">"Confía en tus ideas"</b>
+            <b className="is-italic has-text-warning">"Confía en tus ideas"</b>
             <br/>
             <span>Nosotros las hacemos realidad.</span>
           </div>
@@ -55,6 +56,6 @@ const Footer = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Footer;

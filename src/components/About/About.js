@@ -1,30 +1,42 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+
+import image1 from '../../img/imagen4.jpg';
+
+class About extends Component {
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render(){
     return(
-      <div className="w-100 mt-h container minHeight-vh">
-
-        <div className="columns maxWidth-100 mx-0">
-          <div className="column is-6 section">
-            <div className="hero is-dark box section">
-              <div className="title is-text-title has-text-warning">
-                ¿Quienes somos?
-              </div>
-              <div className="is-text-content maxWidth-100" style= {{ width: "580px" }}>
-                Somos una empresa de desarrollo tecnológico Web y Móvil, que brinda soluciones para las personas que desean incursionar en las tendencias tecnológicas. Diseñamos productos que puedan estar al alcance de todos  con interfaces ergonómicas.
+      <div className="w-100">
+        <Header
+        home = { true }
+        />
+        <div className="w-100">
+          <div className="w-100 h-100 is-relative"  style={{ height:"450px" }}>
+            <div className="is-absolute minWidth-vw w-100" style={{ height: "450px", overflow: "hidden" }}>
+              <img src={ image1 } alt="img-about" className="is-absolute minHeight-100 minWidth-vw" style={{ zIndex: "-1", transform: "scaleY(1.1)", transformOrigin: "center" }}/>
+              <div className="is-flex is-centered is-vcentered w-100" style={{ height: "400px" }}>
+                <h1 className="title is-1 has-text-white" style={{ zIndex:"1" }}>Conócenos</h1>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="columns maxWidth-100 mx-0 is-col-align">
-          <div className="column is-6 section pt-0 is-offset-6">
-            <div className="hero is-dark box section">
-              <div className="title is-text-title has-text-warning">
-                Nuestra Misión
+          <div className="columns has-background-white-white is-multiline is-centered m-0">
+            <div className="column is-8 section">
+              <h1 className="title is-text-title">¿Quiénes Somos?</h1>
+              <div className="is-text-content maxWidth-100">
+                Somos una empresa de desarrollo tecnológico Web y Móvil, que brinda soluciones para las personas que desean incursionar en las tendencias tecnológicas. Diseñamos productos que puedan estar al alcance de todos.
               </div>
-              <div className="is-text-content maxWidth-100 " style= {{ width: "580px" }}>
+            </div>
+
+            <div className="column is-8 section">
+              <h1 className="title is-text-title">Nuestra Misión</h1>
+              <div className="is-text-content maxWidth-100 ">
                 Ser una empresa seria, y dedicada a crear soluciones innovadoras  dirigidas a MiPymes que deseen facilitar sus labores cotidianas mediante la implementación de las nuevas tendencias tecnológicas.
 
                 <br/>
@@ -33,25 +45,21 @@ class Home extends Component {
                 Desarrollamos aplicaciones de ámbito web y móvil que les permitan mejorar sus procesos, reducir tiempos y facilitar sus tareas durante las jornadas laborales.
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="columns maxWidth-100 mx-0 is-col-align">
-          <div className="column is-6 section pt-0">
-            <div className="hero is-dark box section">
-              <div className="title is-text-title has-text-warning">
-                Nuestra Visión
-              </div>
-              <div className="is-text-content maxWidth-100 " style= {{ width: "580px" }}>
+            <div className="column is-8 section">
+              <h1 className="title is-text-title">Nuestra Visión</h1>
+              <div className="is-text-content maxWidth-100 ">
                 Ser una compañía líder estatal, elegida por su alta capacidad de trabajo y compromiso en la provisión de soluciones innovadoras.
               </div>
             </div>
-          </div>
-        </div>
 
+          </div>
+
+        </div>
+        <Footer />
       </div>
     );
   }
 }
 
-export default Home;
+export default About;
