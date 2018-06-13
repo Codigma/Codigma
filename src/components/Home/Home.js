@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-import imagen2 from '../../img/imagen8.jpg'
+import imagen2 from '../../img/imagen2.jpg'
 
 class Home extends Component {
 
@@ -18,21 +18,23 @@ class Home extends Component {
         <Header
         home = { true }
         />
-        <div className="is-relative w-100 minHeighth-100" style={{ overflow: "hidden" }}>
-          <div className="slider w-100 minHeight-vh">
-            <div className="slide" />
-            <div className="slide" />
-            <div className="slide" />
-            <div className="slide" />
-            <div className="slide" />
+        <div id="slider">
+          <div className="is-absolute is-cero has-text-centered is-flex is-centered is-vcentered" style={{ zIndex: "1" }}>
+            <div className="is-block">
+              <svg className="has-text-white has-text-centered w-100 px-4" style={{ fill: "currentColor", maxWidth: "350px" }}>
+                <use xlinkHref="#logo" />
+              </svg>
+              <h1 className="title is-5 has-text-white mx-auto px-3" style={{ letterSpacing: "0.2em", zIndex: "1", maxWidth: "440px", textShadow: "0 0 5px rgba(0, 0, 0, 0.7)" }}>Diseño Gráfico, Desarrollo Web y Móvil</h1>
+            </div>
           </div>
-          <div className="is-absolute is-cero has-text-centered" style={{ marginTop: "22vh" }}>
-            <svg className="has-text-white w-100 p-4" style={{ fill: "currentColor", maxWidth: "350px" }}>
-              <use href="#logo" />
-            </svg>
-            <h1 className="title is-5 has-text-white mx-auto px-3" style={{ letterSpacing: "0.2em", maxWidth: "440px" }}>Diseño gráfico, Desarrollo Web y Móvil</h1>
+            <div className="slide"><div className="bg"/></div>
+            <div className="slide"><div className="bg"/></div>
+            <div className="slide"><div className="bg"/></div>
+            <div className="slide"><div className="bg"/></div>
           </div>
-        </div>
+
+
+
         <div className="w-100 has-background-white py-5">
           <div className="columns is-centered my-0 maxWidth-100 mx-0">
             <div className="column is-narrow">
@@ -42,7 +44,7 @@ class Home extends Component {
           <div className="columns multiline is-centered section pt-4 maxWidth-100 m-0">
             <div className="column is-7">
               <p className="subtitle is-main-text">
-                <b><Link to="/" className="has-text-warning">Codigma</Link></b> nace de la idea un grupo de amigos apasionados por la tecnología que vieron la necesidad de renovar los procesos con los que trabajaban los negocios de su ciudad natal. Bridamos soluciones que implementan nuevas tecnologías permitiendo optimizar tiempos y aumentar ganancias. <Link to="/nosotros" className="flexNoWrap has-text-link">Leer más...</Link>
+                <b><Link to="/" className="has-text-warning">Codigma</Link></b> nace de la idea de un grupo de amigos apasionados por la tecnología que vieron la necesidad de renovar los procesos con los que trabajaban los negocios de su ciudad natal. Brindamos soluciones que implementan nuevas tecnologías permitiendo optimizar tiempos y aumentar ganancias. <Link to="/nosotros" className="flexNoWrap has-text-link">Leer más...</Link>
               </p>
             </div>
           </div>
@@ -78,7 +80,7 @@ class Home extends Component {
                   </div>
                 </div>
                 <p className="has-text-centered title is-5 pt-3 has-text-warning">
-                  Apps Móviles
+                  Aplicaciones
                 </p>
               </div>
 
@@ -111,11 +113,13 @@ class Home extends Component {
 
         <div className="columns section has-background-white is-multiline is-centered m-0">
           <div className="column is-12 columns is-centered is-relative m-0" style= {{ height: "100vw", overflow: "hidden", maxHeight: "668px", transformOrigin: "center center 0", borderRadius: "16px" }}>
+            <div className="is-absolute is-cero w-100 minHeight-100" style={{ zIndex: "1",
+  backgroundColor: "rgba(54, 54, 54, 0.2)" }}></div>
             <h1 className="title has-text-white is-absolute is-flex is-vcentered h-100 has-text-centered w-100 is-centered" style={{ zIndex: "1", left: "0", top: "0" }}>Conoce nuestro trabajo</h1>
             <img src={ imagen2 } alt="img" className="is-absolute is-cero w-100 minWidth-vw minHeight-100" style={{ transform: "scale3d(1.2, 1, 1)", transformOrigin: "center center 0" }}/>
           </div>
           <div className="column is-12 has-text-centered">
-            <Link to="/portafolio/recientes" className="button is-dark is-rounded">Ir al portafolio</Link>
+            <a href="/portafolio/#Recientes" className="button is-dark is-rounded">Ir al portafolio</a>
           </div>
         </div>
 

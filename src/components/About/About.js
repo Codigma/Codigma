@@ -18,26 +18,24 @@ class About extends Component {
         home = { true }
         />
         <div className="w-100">
-          <div className="w-100 h-100 is-relative"  style={{ height:"450px" }}>
-            <div className="is-absolute minWidth-vw w-100" style={{ height: "450px", overflow: "hidden" }}>
-              <img src={ image1 } alt="img-about" className="is-absolute minHeight-100 minWidth-vw" style={{ zIndex: "-1", transform: "scaleY(1.1)", transformOrigin: "center" }}/>
-              <div className="is-flex is-centered is-vcentered w-100" style={{ height: "400px" }}>
-                <h1 className="title is-1 has-text-white" style={{ zIndex:"1" }}>Conócenos</h1>
-              </div>
-            </div>
+          <div className="w-100 h-100 is-relative theback" style= {{ height: "100vw", overflow: "hidden", maxHeight: "450px", transformOrigin: "center center 0" }}>
+            <h1 className="title has-text-white is-absolute is-flex is-vcentered h-100 has-text-centered w-100 is-centered" style={{ zIndex: "1", left: "0", top: "0" }}><span className="typedtext1">Conócenos</span></h1>
+            <img src={ image1 } alt="img" className="is-absolute is-cero w-100 minWidth-vw minHeight-100" style={{ transform: "scale3d(1.2, 1, 1)", transformOrigin: "center center 0" }}/>
           </div>
+
+
           <div className="columns has-background-white-white is-multiline is-centered m-0">
             <div className="column is-8 section">
-              <h1 className="title is-text-title">¿Quiénes Somos?</h1>
+              <h1 className="title is-text-title has-text-warning">¿Quiénes Somos?</h1>
               <div className="is-text-content maxWidth-100">
                 Somos una empresa de desarrollo tecnológico Web y Móvil, que brinda soluciones para las personas que desean incursionar en las tendencias tecnológicas. Diseñamos productos que puedan estar al alcance de todos.
               </div>
             </div>
 
             <div className="column is-8 section">
-              <h1 className="title is-text-title">Nuestra Misión</h1>
+              <h1 className="title is-text-title has-text-warning">Nuestra Misión</h1>
               <div className="is-text-content maxWidth-100 ">
-                Ser una empresa seria, y dedicada a crear soluciones innovadoras  dirigidas a MiPymes que deseen facilitar sus labores cotidianas mediante la implementación de las nuevas tendencias tecnológicas.
+                Ser una empresa seria y dedicada a crear soluciones innovadoras  dirigidas a MiPymes que deseen facilitar sus labores cotidianas mediante la implementación de las nuevas tendencias tecnológicas.
 
                 <br/>
                 <br/>
@@ -47,7 +45,7 @@ class About extends Component {
             </div>
 
             <div className="column is-8 section">
-              <h1 className="title is-text-title">Nuestra Visión</h1>
+              <h1 className="title is-text-title has-text-warning">Nuestra Visión</h1>
               <div className="is-text-content maxWidth-100 ">
                 Ser una compañía líder estatal, elegida por su alta capacidad de trabajo y compromiso en la provisión de soluciones innovadoras.
               </div>

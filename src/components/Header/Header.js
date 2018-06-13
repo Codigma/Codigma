@@ -7,7 +7,7 @@ class Header extends Component {
     super(props);
 
     const {
-      toggle,
+      toggle
     } = this.props
 
     this.state = {
@@ -58,6 +58,10 @@ class Header extends Component {
     return(
     <nav id="navbar" className={ "navbar header is-fixed-top is-dark " + (this.state.transparent ? 'is-transparent' : 'is-dark is-shadow') } style={{ height: "70px" }}>
 
+    <button type="button" name="buttonTop" id="btnToTop" className={ "button is-warning is-fixed "+ (this.state.transparent ? 'd-none' : 'd-flex') } onClick={ () => window.scrollTo(0, 0) }>
+      <i className="fas fa-2x fa-angle-up is-absolute"></i>
+    </button>
+
       <div className="container h-100">
 
         <div className="navbar-brand h-100">
@@ -65,7 +69,7 @@ class Header extends Component {
           className="navbar-item"
           onClick={ (e) => this.handleSetMenu(e) }>
           <svg className={ "icon "+ (this.state.transparent ? '' : 'has-text-warning') } style={{ width: "100px", fill: "currentColor" }}>
-            <use href="#logo" />
+            <use xlinkHref="#logo" />
           </svg>
 
           </NavLink>
@@ -124,7 +128,7 @@ class Header extends Component {
               <span>Servicios</span>
             </NavLink>
 
-            <NavLink to="/portafolio/recientes"
+            <NavLink to="/portafolio/#Recientes"
             activeClassName="is-active"
             className="navbar-item"
             onClick={ (e) => this.handleSetMenu(e) }>

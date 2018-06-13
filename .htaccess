@@ -1,0 +1,36 @@
+Header set Strict-Transport-Security: "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+#ErrorDocument 404 /error.html
+#AddType application/x-httpd-php .asp .py .pl
+
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+#RewriteEngine on
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#RewriteRule ^controller/consulta$            /controller/ConsultaController.php [L]
+#RewriteRule ^controller/captura$              /controller/CapturaController.php [L]
+#RewriteRule ^colecciones$                            /collection.php [L]
+
+
+#RewriteRule ^productos$                             /index.php?opcion=1 [L]
+#RewriteRule ^contacto$                              /index.php?opcion=2 [L]
+#RewriteRule ^login$                                 /index.php?opcion=3 [L]
+#RewriteRule ^registro$                              /index.php?opcion=4 [L]
+#RewriteRule ^carrito$                               /index.php?opcion=5 [L]
+#RewriteRule ^políticas$                             /index.php?opcion=6 [L]
+#RewriteRule ^productos/([a-zA-Z0-9-\s]+)$           /index.php?opcion=7&cat=$1 [L]
+#RewriteRule ^productos/busqueda/([a-zA-Z0-9]+)$     /index.php?opcion=8&word=$1 [L]
+#RewriteRule ^productos/busqueda/([0-9]+)/([0-9]+)$  /index.php?opcion=9&id=$1&subcat=$2 [L]
+
+#Options -Indexes
+
+#<Files .htaccess>
+#Order allow,deny
+#Deny from all
+#</Files>

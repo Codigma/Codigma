@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Work from './components/Work/Work';
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="w-100 minHeight-100 maxWidth-100">
         <div className="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
+          <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }} >
             <symbol id="logo" viewBox="0 0 665.8 146.79">
               <title>logo</title>
               <polygon className="cls-1" points="61.39 26.21 52.64 34.95 38.67 20.99 17.71 0 35.18 0 61.39 26.21"/>
@@ -37,8 +37,7 @@ class App extends Component {
           <Route path="/" exact component={ Home } />
           <Route path="/nosotros" component={ About } />
           <Route path="/servicios" component={ Work } />
-          <Route path="/portafolio/:id" component={ Portfolio } />
-          <Redirect from="/portafolio" to="/portafolio/recientes" />
+          <Route path="/portafolio" component={ Portfolio } />
           <Route component={ NoMatch } />
         </Switch>
       </div>
